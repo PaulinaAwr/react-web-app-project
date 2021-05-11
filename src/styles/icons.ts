@@ -1,0 +1,17 @@
+export { ReactComponent as HouseIcon } from 'assets/icons/house2.svg';
+export { ReactComponent as HouseLighterIcon } from 'assets/icons/house.svg';
+export { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow-down.svg';
+export { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
+export { ReactComponent as CommentsIcon } from 'assets/icons/comments.svg';
+export { ReactComponent as BellIcon } from 'assets/icons/bell.svg';
+export { ReactComponent as PeopleIcon } from 'assets/icons/people.svg';
+export { ReactComponent as UserPlusIcon } from 'assets/icons/user-plus.svg';
+export { ReactComponent as PublicationsIcon } from 'assets/icons/publications.svg';
+export { ReactComponent as PlusIcon } from 'assets/icons/plus.svg';
+export { ReactComponent as NetworkIcon } from 'assets/icons/network.svg';
+export { ReactComponent as EcosystemIcon } from 'assets/icons/ecosystem.svg';
+export { ReactComponent as EntitiesIcon } from 'assets/icons/entities.svg';
+export { ReactComponent as AdministrationIcon } from 'assets/icons/administration.svg';
+export { ReactComponent as PrivacyIcon } from 'assets/icons/privacy.svg';
+export { ReactComponent as SettingsIcon } from 'assets/icons/settings.svg';
+export { ReactComponent as LogoutIcon } from 'assets/icons/logout.svg';
