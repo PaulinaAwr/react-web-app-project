@@ -11,7 +11,7 @@ export const WebsiteContent = styled.div`
   grid-template-columns: 100%;
   padding: 0 20px;
   
-  ${media.sm} {
+  ${media.md} {
     grid-template-columns: 300px auto;
   }
 `;

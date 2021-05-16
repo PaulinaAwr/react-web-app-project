@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { SidebarProfileSection, Avatar, Separator, SidebarProfileControl, SidebarProfileControlButton, SidebarProfileControlLink, SidebarNavigationItem } from './Sidebar.styles';
+import { SidebarProfileSection, Avatar, Separator, SidebarProfileControl, SidebarProfileControlButton, SidebarProfileControlLink, SidebarNavigationItem, SidebarWrapper } from './Sidebar.styles';
 import { PeopleIcon, UserPlusIcon, PublicationsIcon, PlusIcon, NetworkIcon, EcosystemIcon, EntitiesIcon } from 'styles/icons';
 import PlaceholderImage from 'assets/images/avatar-placeholder.jpg';
 
 const Sidebar: React.FC = () => {
   return (
-    <div>
+    <SidebarWrapper>
       <SidebarProfileSection>
         <Avatar alt={'User avatar'} src={PlaceholderImage} />
         <h3>Paulina Kowalska-Awrahman</h3>
@@ -47,7 +47,7 @@ const Sidebar: React.FC = () => {
         <EntitiesIcon />
         Entities
       </SidebarNavigationItem>
-    </div>
+    </SidebarWrapper>
   )
 }
 

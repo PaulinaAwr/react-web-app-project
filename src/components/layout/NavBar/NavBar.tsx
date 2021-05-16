@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import DropdownNavigation from "../ui/DropdownNavigation";
-import Input from '../ui/forms/Input';
-import NavIcon from '../ui/NavIcon';
+import DropdownNavigation from "../../ui/DropdownNavigation/DropdownNavigation";
+import Input from '../../ui/forms/Input/Input';
+import NavIcon from '../../ui/NavIcon/NavIcon';
 
 import { NavBarWrapper, SearchWrapper, NavIconsWrapper, NavBarContainer } from './NavBar.styles';
 import { HouseLighterIcon, CommentsIcon, BellIcon, SearchIcon } from 'styles';

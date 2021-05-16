@@ -14,7 +14,7 @@ export const StyledInput = styled.input<InputProps>`
     color: #929292;
   }
 
-  ${({inputType}) => inputType === 'search' && css`
+  ${({inputType, align}) => inputType === 'search' && align !== 'left' && css`
     text-align: center;
   `}
 `;

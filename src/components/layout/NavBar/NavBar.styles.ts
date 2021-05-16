@@ -11,6 +11,7 @@ export const NavBarWrapper = styled.nav`
   min-height: 48px;
   position: fixed;
   top: 0;
+  z-index: 9999;
   
   background-color: ${colors.surface};
   box-shadow: ${shadows.navbar};

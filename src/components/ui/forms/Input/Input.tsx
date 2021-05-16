@@ -5,6 +5,7 @@ import { SearchIcon } from 'styles/icons';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputType?: 'search';
+  align?: 'left';
   onChange?: (ev: React.FormEvent<HTMLInputElement>) => void;
 }
 

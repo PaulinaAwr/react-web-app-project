@@ -1,68 +1,29 @@
 import React, { useState } from 'react';
 import useDropdown from 'react-dropdown-hook';
 
-import Input from "./forms/Input";
+import Input from "../forms/Input/Input";
 
-import { DropdownButton, DropdownWrapper, DropdownItem, DropdownListWrapper, SubMenuLabel, FilterWrapper, DropdownIcon, DropdownProfileSection, LogoutButton, ScrollableListArea } from './DropdownNavigation.styles';
-import { HouseIcon, PublicationsIcon, PeopleIcon, EntitiesIcon, AdministrationIcon, PrivacyIcon, SettingsIcon, LogoutIcon } from 'styles';
 import PlaceholderImage from 'assets/images/avatar-placeholder.jpg';
+import { DropdownButton, DropdownWrapper, DropdownItem, DropdownListWrapper, SubMenuLabel, FilterWrapper, DropdownIcon, DropdownProfileSection, LogoutButton, ScrollableListArea } from './DropdownNavigation.styles';
+import { HouseIcon, PrivacyIcon, SettingsIcon, LogoutIcon } from 'styles';
+import { dropdownItems } from './dropdownItems';
 
 const DropdownNavigation: React.FC = () => {
   const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
   const [filterString, setFilterString] = useState<string>('');
+  const [currentItemId, setCurrentItemId] = useState<number>(1);
 
-  const dropdownItems = [
-    {
-      name: 'Platform',
-      items: [
-        {
-          name: 'Home',
-          icon: <HouseIcon />
-        },
-        {
-          name: 'Publications',
-          icon: <PublicationsIcon />
-        },
-        {
-          name: 'People',
-          icon: <PeopleIcon />
-        },
-        {
-          name: 'Entities',
-          icon: <EntitiesIcon />
-        },
-        {
-          name: 'Administration',
-          icon: <AdministrationIcon />
-        },
-      ]
-    },
-    {
-      name: 'Workspaces',
-      items: [
-        {
-          name: 'Client contract',
-          icon: <HouseIcon />
-        },
-        {
-          name: 'Supplier contract',
-          icon: <HouseIcon />
-        },
-        {
-          name: 'Corporate',
-          icon: <EntitiesIcon />
-        },
-        {
-          name: 'Group Norms',
-          icon: <HouseIcon />
-        },
-        {
-          name: 'Real estate contracts',
-          icon: <HouseIcon />
+  let currentMenuItem = {
+    icon: <HouseIcon />,
+    name: 'Home'
+  };
+  dropdownItems.forEach(itemsGroup => {
+      itemsGroup.items.forEach(item => {
+        if (item.id === currentItemId) {
+          currentMenuItem = item;
         }
-      ]
-    }
-  ]
+      })
+  });
 
   // dropdown menu items filtering logic
   let filteredDropdownItems = dropdownItems;
@@ -79,12 +40,17 @@ const DropdownNavigation: React.FC = () => {
     setFilterString((ev.target as HTMLInputElement).value);
   }
 
+  const handleItemClick = (itemId: number) => () => {
+    closeDropdown();
+    setCurrentItemId(itemId);
+  }
+
   return (
       <DropdownWrapper ref={wrapperRef}>
         <DropdownButton onClick={toggleDropdown}>
           <div>
-            <HouseIcon />
-            Home
+            {currentMenuItem.icon}
+            {currentMenuItem.name }
           </div>
 
           <DropdownIcon />
@@ -100,7 +66,7 @@ const DropdownNavigation: React.FC = () => {
               <>
                 <SubMenuLabel>{itemsList.name}</SubMenuLabel>
                 {itemsList.items.map(item => (
-                  <DropdownItem>
+                  <DropdownItem key={item.id} onClick={handleItemClick(item.id)}>
                     {item.icon}
                     {item.name}
                   </DropdownItem>

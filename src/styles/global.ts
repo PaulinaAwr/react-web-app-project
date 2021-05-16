@@ -25,6 +25,21 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+  
+  a, a:link {
+      color: ${colors.link};
+      text-decoration: none;
+      position: relative;
+  }
+  
+  h2 {
+      font-size: 2rem;
+      color: ${colors.accentLight};
+  }
+  
+  p {
+      color: ${colors.paragraph};
+  }
 `;
 
 export default GlobalStyle;

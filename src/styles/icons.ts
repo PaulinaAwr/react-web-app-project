@@ -11,6 +11,7 @@ export { ReactComponent as PlusIcon } from 'assets/icons/plus.svg';
 export { ReactComponent as NetworkIcon } from 'assets/icons/network.svg';
 export { ReactComponent as EcosystemIcon } from 'assets/icons/ecosystem.svg';
 export { ReactComponent as EntitiesIcon } from 'assets/icons/entities.svg';
+export { ReactComponent as Entities2Icon } from 'assets/icons/entities2.svg';
 export { ReactComponent as AdministrationIcon } from 'assets/icons/administration.svg';
 export { ReactComponent as PrivacyIcon } from 'assets/icons/privacy.svg';
 export { ReactComponent as SettingsIcon } from 'assets/icons/settings.svg';

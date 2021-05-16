@@ -5,7 +5,7 @@ import { shadows, colors } from 'styles';
 export const SidebarProfileSection = styled.div`
   width: 100%;
   background: #fff;
-  box-shadow: ${shadows.sidebar};
+  box-shadow: ${shadows.card};
   border-radius: 4px;
   padding: 20px 0;
   text-align: center;
@@ -91,7 +91,7 @@ export const SidebarNavigationItem = styled.a`
   padding-left: 25px;
   cursor: pointer;
   font-weight: 600;
-  color: ${colors.accentLight};
+  color: ${colors.mutedParagraph};
   height: 1.8em;
   
   svg {
@@ -103,4 +103,8 @@ export const SidebarNavigationItem = styled.a`
   &:hover {
     color: ${colors.accentMedium};
   }
+`;
+
+export const SidebarWrapper = styled.div`
+  margin-bottom: 64px;  
 `;
