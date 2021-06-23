@@ -61,7 +61,7 @@ const LatestPublications: React.FC = () => {
               </span>
                 <span>
                 <img alt={''} src={findPhotoByPostId(publication.id)?.thumbnailUrl} />
-                {findUserById(publication.userId)?.name}
+                {findUserById(publication.id)?.name}
               </span>
               </Metadata>
             </div>

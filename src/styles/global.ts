@@ -40,6 +40,14 @@ const GlobalStyle = createGlobalStyle`
   p {
       color: ${colors.paragraph};
   }
+  
+  hr {
+      margin-bottom: 24px;
+      border: 0;
+      height: 1px;
+      width: 100%;
+      background-color: ${colors.mutedParagraph};
+  }
 `;
 
 export default GlobalStyle;

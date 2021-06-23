@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+
 import Input from 'components/ui/forms/Input/Input';
+import Pagination from 'components/ui/Pagination/Pagination';
 
 import { ContractWrapper, ContractMeta, ListHeader } from './ContractsList.styles';
 
@@ -9,6 +11,8 @@ import { PeopleIcon, Entities2Icon } from 'styles';
 const ContractsList: React.FC = () => {
   const [filterString, setFilterString] = useState<string>('');
   const [contracts, setContracts] = useState<Comment[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   const handleFilterChange = (ev: React.FormEvent<HTMLInputElement>) => {
     setFilterString((ev.target as HTMLInputElement).value);
@@ -17,13 +21,22 @@ const ContractsList: React.FC = () => {
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/comments')
       .then((response) => response.json())
-      .then((json) => setContracts(json));
+      .then((json) => {
+        setContracts(json);
+        setTotalPages(Math.ceil(json.length / 10));
+      });
   }, [])
 
   const filterContractsByTitle = ({ name }: { name: string }) => {
     if (filterString === '') return true
     return name.toLowerCase().includes(filterString.toLowerCase());
   }
+
+  const handlePaginationPageChange = (selectedItem: {selected: number}) => {
+    setCurrentPage(selectedItem.selected);
+  }
+
+  const contractsToShow = contracts.filter(filterContractsByTitle).slice(currentPage * 10, (currentPage + 1) * 10);
 
   return (
     <>
@@ -33,7 +46,7 @@ const ContractsList: React.FC = () => {
           <Input inputType={'search'} align={'left'} placeholder={'Filter by title...'} onChange={handleFilterChange} />
         </div>
       </ListHeader>
-      {contracts.filter(filterContractsByTitle).slice(0, 10).map(contract => (
+      {contractsToShow.map(contract => (
         <ContractWrapper>
           <h3>{contract.name}</h3>
           <p>
@@ -51,12 +64,13 @@ const ContractsList: React.FC = () => {
           </span>
 
             <span>
-            Updated 3 days ago by John Doe
+            Updated 3 days ago by {contract.email}
           </span>
 
           </ContractMeta>
         </ContractWrapper>
       ))}
+      <Pagination marginPagesDisplayed={1} pageCount={totalPages} pageRangeDisplayed={2} onPageChange={handlePaginationPageChange} />
     </>
   )
 }

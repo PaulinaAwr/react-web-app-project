@@ -8,12 +8,16 @@ export const colors = {
     mutedParagraph: '#bbb',
     mutedMedium: '#858585',
     separator: '#e7e7e7',
-    link: '#185999'
+    link: '#185999',
+    surfaceDark: '#e3e3e3',
+    deletion: '#ff3838',
+    activeSwitchBackground: '#dfe4f5'
 }
 
 export const shadows = {
     navbar: '0 0 15px #D6D6D6',
-    card: '0 3px 4px #d6d6d6'
+    card: '0 3px 4px #d6d6d6',
+    switch: '0 2px 2px #e6e3e3'
 }
 
 export const borders = {

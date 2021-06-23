@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles';
-import { contained } from 'styles/shared';
+import { contained, wider } from 'styles/shared';
 
-export const WebsiteContent = styled.div`
+export const WebsiteContent = styled.div<{isFullscreen?: boolean}>`
   ${contained};
   
   display: grid;
@@ -13,5 +13,13 @@ export const WebsiteContent = styled.div`
   
   ${media.md} {
     grid-template-columns: 300px auto;
+
+    ${({isFullscreen}) => isFullscreen && css`
+      grid-template-columns: 100%;
+      & > div:first-of-type {
+        display: none;
+      }
+      ${wider};
+    `}
   }
 `;

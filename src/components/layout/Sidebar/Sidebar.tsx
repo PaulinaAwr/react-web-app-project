@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import { SidebarProfileSection, Avatar, Separator, SidebarProfileControl, SidebarProfileControlButton, SidebarProfileControlLink, SidebarNavigationItem, SidebarWrapper } from './Sidebar.styles';
 import { PeopleIcon, UserPlusIcon, PublicationsIcon, PlusIcon, NetworkIcon, EcosystemIcon, EntitiesIcon } from 'styles/icons';
+import { UserContext } from 'contexts/user.context';
+
 import PlaceholderImage from 'assets/images/avatar-placeholder.jpg';
 
 const Sidebar: React.FC = () => {
+  const {name, company, workPosition} = useContext(UserContext);
+
   return (
     <SidebarWrapper>
       <SidebarProfileSection>
         <Avatar alt={'User avatar'} src={PlaceholderImage} />
-        <h3>Paulina Kowalska-Awrahman</h3>
-        <p>Job Title - Company</p>
+        <Link to={`/profile`}><h3>{name}</h3></Link>
+        <p>{workPosition} - {company}</p>
 
         <Separator />
 
@@ -35,15 +40,15 @@ const Sidebar: React.FC = () => {
         </SidebarProfileControl>
       </SidebarProfileSection>
 
-      <SidebarNavigationItem>
+      <SidebarNavigationItem to={'/'}>
         <PublicationsIcon />
         Publications
       </SidebarNavigationItem>
-      <SidebarNavigationItem>
+      <SidebarNavigationItem to={'/workspaces'}>
         <EcosystemIcon />
         Ecosystem
       </SidebarNavigationItem>
-      <SidebarNavigationItem>
+      <SidebarNavigationItem to={'/entities'}>
         <EntitiesIcon />
         Entities
       </SidebarNavigationItem>

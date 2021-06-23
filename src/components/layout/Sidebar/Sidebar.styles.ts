@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { shadows, colors } from 'styles';
 
@@ -84,7 +85,7 @@ export const SidebarProfileControlLink = styled.span`
   }
 `;
 
-export const SidebarNavigationItem = styled.a`
+export const SidebarNavigationItem = styled(Link)`
   display: flex;
   align-items: center;
   margin-top: 20px;
@@ -106,5 +107,5 @@ export const SidebarNavigationItem = styled.a`
 `;
 
 export const SidebarWrapper = styled.div`
-  margin-bottom: 64px;  
+  margin-bottom: 64px;
 `;

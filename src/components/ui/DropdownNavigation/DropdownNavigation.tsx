@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import useDropdown from 'react-dropdown-hook';
 
 import Input from "../forms/Input/Input";
@@ -7,11 +8,15 @@ import PlaceholderImage from 'assets/images/avatar-placeholder.jpg';
 import { DropdownButton, DropdownWrapper, DropdownItem, DropdownListWrapper, SubMenuLabel, FilterWrapper, DropdownIcon, DropdownProfileSection, LogoutButton, ScrollableListArea } from './DropdownNavigation.styles';
 import { HouseIcon, PrivacyIcon, SettingsIcon, LogoutIcon } from 'styles';
 import { dropdownItems } from './dropdownItems';
+import { UserContext } from 'contexts/user.context';
+import { NavigationContext } from "contexts/navigation.context";
 
 const DropdownNavigation: React.FC = () => {
   const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
   const [filterString, setFilterString] = useState<string>('');
-  const [currentItemId, setCurrentItemId] = useState<number>(1);
+  const { name } = useContext(UserContext);
+  const { currentMenuItem: currentMenuItemId, setCurrentMenuItem } = useContext(NavigationContext);
+
 
   let currentMenuItem = {
     icon: <HouseIcon />,
@@ -19,7 +24,7 @@ const DropdownNavigation: React.FC = () => {
   };
   dropdownItems.forEach(itemsGroup => {
       itemsGroup.items.forEach(item => {
-        if (item.id === currentItemId) {
+        if (item.id === currentMenuItemId) {
           currentMenuItem = item;
         }
       })
@@ -42,7 +47,7 @@ const DropdownNavigation: React.FC = () => {
 
   const handleItemClick = (itemId: number) => () => {
     closeDropdown();
-    setCurrentItemId(itemId);
+    setCurrentMenuItem(itemId);
   }
 
   return (
@@ -50,7 +55,7 @@ const DropdownNavigation: React.FC = () => {
         <DropdownButton onClick={toggleDropdown}>
           <div>
             {currentMenuItem.icon}
-            {currentMenuItem.name }
+            {currentMenuItem.name}
           </div>
 
           <DropdownIcon />
@@ -80,8 +85,8 @@ const DropdownNavigation: React.FC = () => {
               <img src={PlaceholderImage} alt=""/>
 
               <div>
-                  <p>Paulina Kowalska-Awrahman</p>
-                  <span>See profile</span>
+                  <p>{name}</p>
+                  <Link to={'/profile'}>See profile</Link>
               </div>
           </DropdownProfileSection>
           <DropdownItem>

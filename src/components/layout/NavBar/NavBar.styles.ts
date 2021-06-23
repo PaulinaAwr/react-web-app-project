@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { colors, shadows, media } from 'styles';
 import { contained } from 'styles/shared';
 
-export const NavBarWrapper = styled.nav`
+export const NavBarWrapper = styled.nav<{ isFullscreen: boolean }>`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -15,6 +15,11 @@ export const NavBarWrapper = styled.nav`
   
   background-color: ${colors.surface};
   box-shadow: ${shadows.navbar};
+  
+  transition-duration: .5s;
+  ${({isFullscreen}) => isFullscreen && css`
+    transform: translateY(-100%);
+  `}
 `;
 
 export const SearchWrapper = styled.div`
