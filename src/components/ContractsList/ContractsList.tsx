@@ -6,7 +6,8 @@ import Pagination from 'components/ui/Pagination/Pagination';
 import { ContractWrapper, ContractMeta, ListHeader } from './ContractsList.styles';
 
 import { Comment } from 'components/api/types';
-import { PeopleIcon, Entities2Icon } from 'styles';
+import {PeopleIcon, Entities2Icon, CrosshairIcon} from 'styles';
+import {FilterSelectWrapper} from "../pages/Entities/components/EntitiesList/EntitiesList.styles";
 
 const ContractsList: React.FC = () => {
   const [filterString, setFilterString] = useState<string>('');
@@ -42,8 +43,16 @@ const ContractsList: React.FC = () => {
     <>
       <ListHeader>
         <h2>Resume your work</h2>
+
         <div>
           <Input inputType={'search'} align={'left'} placeholder={'Filter by title...'} onChange={handleFilterChange} />
+
+          <FilterSelectWrapper>
+            <CrosshairIcon />
+            <select>
+              <option value="">Followed</option>
+            </select>
+          </FilterSelectWrapper>
         </div>
       </ListHeader>
       {contractsToShow.map(contract => (

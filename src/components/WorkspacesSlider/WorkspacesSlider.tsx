@@ -1,11 +1,18 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
+import { useHistory } from 'react-router-dom';
 
 import { Entities2Icon, PeopleIcon } from 'styles';
 import { WorkspaceCard, WorkspacesWrapper, WorkspaceCardPhoto, WorkspaceCardHeading, WorkspaceIcon, WorkspaceCardMeta, WorkspaceCardDate } from './WorkspacesSlider.styles';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const WorkspacesSlider: React.FC = () => {
+  const history = useHistory();
+
+  const goToWorkspaces = () => {
+    history.push('/workspaces');
+  }
+
   return (
     <WorkspacesWrapper>
       <h2>Workspaces</h2>
@@ -18,7 +25,7 @@ const WorkspacesSlider: React.FC = () => {
       >
         <Slider>
           <Slide index={0}>
-            <WorkspaceCard>
+            <WorkspaceCard onClick={goToWorkspaces}>
               <WorkspaceCardPhoto src={'https://picsum.photos/seed/picsum/300/200'} />
               <WorkspaceCardHeading>
                 <WorkspaceIcon>
@@ -44,7 +51,7 @@ const WorkspacesSlider: React.FC = () => {
           </Slide>
 
           <Slide index={1}>
-            <WorkspaceCard>
+            <WorkspaceCard onClick={goToWorkspaces}>
               <WorkspaceCardPhoto src={'https://picsum.photos/seed/picsum/300/200'} />
               <WorkspaceCardHeading>
                 <WorkspaceIcon>
@@ -70,7 +77,7 @@ const WorkspacesSlider: React.FC = () => {
           </Slide>
 
           <Slide index={2}>
-            <WorkspaceCard>
+            <WorkspaceCard onClick={goToWorkspaces}>
               <WorkspaceCardPhoto src={'https://picsum.photos/seed/picsum/300/200'} />
               <WorkspaceCardHeading>
                 <WorkspaceIcon>
@@ -96,7 +103,7 @@ const WorkspacesSlider: React.FC = () => {
           </Slide>
 
           <Slide index={3}>
-            <WorkspaceCard>
+            <WorkspaceCard onClick={goToWorkspaces}>
               <WorkspaceCardPhoto src={'https://picsum.photos/seed/picsum/300/200'} />
               <WorkspaceCardHeading>
                 <WorkspaceIcon>
@@ -122,7 +129,7 @@ const WorkspacesSlider: React.FC = () => {
           </Slide>
 
           <Slide index={4}>
-            <WorkspaceCard>
+            <WorkspaceCard onClick={goToWorkspaces}>
               <WorkspaceCardPhoto src={'https://picsum.photos/seed/picsum/300/200'} />
               <WorkspaceCardHeading>
                 <WorkspaceIcon>

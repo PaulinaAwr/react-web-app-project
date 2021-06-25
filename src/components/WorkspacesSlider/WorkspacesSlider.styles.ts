@@ -3,6 +3,7 @@ import { colors, shadows } from 'styles';
 
 export const WorkspaceCard = styled.div`
   background: ${colors.surface};
+  cursor: pointer;
   
   border-radius: 4px;
   box-shadow: ${shadows.card};

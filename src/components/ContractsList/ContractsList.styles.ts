@@ -69,4 +69,15 @@ export const ListHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  
+  & > div {
+    display: flex;
+  }
+  
+  select {
+    background: transparent;
+  }
+  svg {
+    margin-left: 10px;
+  }
 `;

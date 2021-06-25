@@ -36,6 +36,12 @@ export const SearchWrapper = styled.div`
   }
 `;
 
+export const CompanyLogo = styled.img`
+  height: 40px;
+  margin-right: 12px;
+  cursor: pointer;
+`;
+
 export const NavIconsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -81,5 +87,8 @@ export const NavBarContainer = styled.div`
     justify-content: space-between;
     
     padding: 0 10px;
+  }
+  & > div {
+    display: flex;
   }
 `;
